@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GE Recruiting Copilot</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f766e'/><text x='16' y='22' font-size='15' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>GE</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="logo">GE</span><div><b>Recruiting Copilot</b><small>GE Staffing · recruiter portal</small></div></div>
+    <nav id="tabs">
+      <button data-tab="roles" class="on">Roles &amp; shortlists</button>
+      <button data-tab="pipeline">Pipeline</button>
+      <button data-tab="ask">Ask</button>
+      <button data-tab="test">Test page</button>
+      <button data-tab="cvs">CVs</button>
+      <button data-tab="add">Add role / CVs</button>
+    </nav>
+  </header>
+
+  <main>
+    <p id="status" class="status">Loading…</p>
+
+    <section id="roles" class="tab on">
+      <h1>Open roles and their shortlists</h1>
+      <p class="hint">A role becomes <b>Open</b> when a recruiter clicks Approve in Slack. Its top 5 candidates appear here with a score, the reason and the CV file each answer came from.</p>
+      <div id="roleList"></div>
+    </section>
+
+    <section id="pipeline" class="tab">
+      <h1>Candidates per pipeline stage</h1>
+      <p class="hint">Live from GoHighLevel, pipeline <b>GE-RC Candidates</b>. A candidate appears here after the recruiter approves them and confirms in GHL.</p>
+      <div id="board" class="board"></div>
+    </section>
+
+    <section id="ask" class="tab">
+      <h1>Ask in plain English</h1>
+      <p class="hint">Same brain as <code>/ge-find</code> in Slack. Example: <i>who has 3+ years of GHL and speaks Arabic?</i></p>
+      <form id="askForm" class="row"><input id="question" placeholder="Describe who you're looking for…" autocomplete="off"><button>Find top 5</button></form>
+      <div id="askOut"></div>
+    </section>
+
+    <section id="test" class="tab">
+      <h1>Test page: 10 questions with known answers</h1>
+      <div id="testOut"></div>
+    </section>
+
+    <section id="cvs" class="tab">
+      <h1>CVs</h1>
+      <div id="cvOut"></div>
+    </section>
+
+    <section id="add" class="tab">
+      <h1>Add a role or CVs</h1>
+      <div class="two">
+        <form id="roleForm" class="card">
+          <h2>New role from a client call</h2>
+          <p class="hint">Paste the call transcript. The AI writes the job description and sends it to Slack for approval. Nothing reaches the client before that.</p>
+          <textarea id="transcript" rows="12" placeholder="Paste the call transcript or notes here…"></textarea>
+          <button>Write job description</button>
+          <p class="msg" id="roleMsg"></p>
+        </form>
+        <form id="cvForm" class="card">
+          <h2>Upload CVs</h2>
+          <p class="hint">PDF, Word or a photo/scan. Same person again → kept once. Newer CV → replaces the old one. Unreadable → flagged in Slack and in the CV log.</p>
+          <input type="file" id="files" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+          <button>Upload and read</button>
+          <ul class="msg" id="cvMsg"></ul>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

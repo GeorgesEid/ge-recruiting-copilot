@@ -1,0 +1,38 @@
+Meeting notes + transcript (Otter) - Ledgerly / GE Staffing - 2026-10-09
+Participants: Raj Patel (CTO, Ledgerly, Austin TX), Beth (GE recruiter)
+
+Raj: Okay so quick context. Ledgerly is accounting software for small landlords. Seed stage, 9 people. We need a full-stack engineer, senior-ish.
+
+Beth: What's the stack?
+
+Raj: React and TypeScript on the front, Node.js on the back, Postgres, all on AWS - Lambda, RDS, S3. So React and Node are must-haves. TypeScript too. I don't want to teach someone TypeScript.
+
+Beth: Years of experience?
+
+Raj: Let's say four years of real React plus Node in production. Actually... make it five. Last time we hired a four-year person and it was rough. Five plus.
+
+Beth: Five plus, React and Node, TypeScript, Postgres, AWS.
+
+Raj: Yes. Fintech experience is a big plus - payments, bank connections, anything with Plaid or Stripe. We connect to bank accounts through Plaid. If they've done Plaid that's gold.
+
+Beth: Hours?
+
+Raj: We're Central time. I need 4 hours overlap minimum, like 9am to 1pm Central. Standup is at 9:30.
+
+Beth: Budget?
+
+Raj: Up to 5,500 a month for the right person. Contract to hire, 3 months contract first.
+
+Beth: Anything you don't want?
+
+Raj: Not a pure front-end person, not a pure backend person. Full stack. And no Angular-only folks, sorry. Also they must write tests, we use Jest and Playwright.
+
+Beth: Certifications matter?
+
+Raj: Not really. AWS cert is nice but I care more about what they shipped.
+
+Beth: English level?
+
+Raj: Good enough for written async communication and standup. Doesn't need to be perfect.
+
+Beth: Great, I'll draft the JD and you approve it before it goes anywhere.

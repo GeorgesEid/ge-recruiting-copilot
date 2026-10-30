@@ -1,0 +1,58 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<<  /Length 1485 >>
+stream
+BT /F2 20 Tf 54 722 Td (IFEOMA NWOSU) Tj ET
+BT /F1 12 Tf 54 705 Td (Full-Stack Engineer) Tj ET
+BT /F1 9 Tf 54 688 Td (ifeoma.nwosu.dev@mailbox-demo.com  |  +234 809 555 0131  |  Abuja, Nigeria) Tj ET
+BT /F1 8 Tf 54 677 Td (CV updated: Jan 2025) Tj ET
+BT /F2 11 Tf 54 650 Td (SUMMARY) Tj ET
+BT /F1 10 Tf 54 636 Td (Full-Stack Engineer with 6+ years of experience in fintech and agencies. Strong in) Tj ET
+BT /F1 10 Tf 54 622 Td (Microservices, testing.) Tj ET
+BT /F2 11 Tf 54 595 Td (EXPERIENCE) Tj ET
+BT /F2 10 Tf 54 575 Td (Full-Stack Engineer - PayNest) Tj ET
+BT /F1 9 Tf 54 562 Td (Apr 2020 - Present  |  fintech) Tj ET
+BT /F1 10 Tf 54 548 Td (- Designed, built and tested React, Node.js, TypeScript, PostgreSQL and AWS code for fintech) Tj ET
+BT /F1 10 Tf 54 534 Td (clients, from database to UI.) Tj ET
+BT /F2 10 Tf 54 514 Td (Junior Developer - Zuma Web) Tj ET
+BT /F1 9 Tf 54 501 Td (Sep 2018 - Mar 2020  |  agencies) Tj ET
+BT /F1 10 Tf 54 487 Td (- Shipped production features with JavaScript and PHP for a agencies product used by thousands) Tj ET
+BT /F1 10 Tf 54 473 Td (of customers.) Tj ET
+BT /F2 11 Tf 54 446 Td (SKILLS) Tj ET
+BT /F1 10 Tf 54 432 Td (React, Node.js, TypeScript, PostgreSQL, AWS, JavaScript, PHP, Microservices, testing) Tj ET
+BT /F2 11 Tf 54 405 Td (LANGUAGES) Tj ET
+BT /F1 10 Tf 54 391 Td (English \(native\), Igbo \(native\)) Tj ET
+BT /F2 11 Tf 54 364 Td (EDUCATION) Tj ET
+BT /F1 10 Tf 54 350 Td (B.Sc. Computer Science, University of Abuja, 2018) Tj ET
+
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000212 00000 n 
+0000000314 00000 n 
+0000000450 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+1988
+%%EOF

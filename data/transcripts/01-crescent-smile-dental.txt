@@ -1,0 +1,40 @@
+CALL TRANSCRIPT (auto-generated, unedited) - Crescent Smile Dental Group / GE Staffing
+Date: Oct 6, 2026   Attendees: Dr. Karim Nassar (owner, Crescent Smile Dental), Beth (GE recruiter)
+
+Beth: Thanks for jumping on, Dr. Nassar. So you said you need someone for the marketing side?
+
+Karim: Yeah. So, uh, we have four offices now, Dearborn, Livonia, Canton and the new one in Troy. We moved everything to GoHighLevel last year, the agency set it up and then honestly they kind of disappeared. So we need our own person. Someone who actually knows GHL, not someone who watched a YouTube video. Like at least three years in it. Three years minimum.
+
+Beth: Got it. What would they do day to day?
+
+Karim: Fix the workflows, the appointment reminders are a mess, half the patients get two texts, some get none. Missed call text back. Reactivation campaigns for patients who haven't come in for six months. Reviews, we want more Google reviews. And the pipelines, the front desk doesn't use them because nobody set them up right.
+
+Beth: Do they need to do ads too?
+
+Karim: No, no ads, we have someone for Facebook. Maybe help with the landing pages inside GHL, that's it. Oh and Zapier or Make, we have a couple of zaps connecting to our practice software, Dentrix, through some middle thing. They should be comfortable with that.
+
+Beth: Language?
+
+Karim: English obviously, good English, they will talk to my office managers. And - this is big for us - a lot of our patients in Dearborn speak Arabic. If they speak Arabic that's a huge plus, they can write the Arabic SMS templates. Not a must... well, it's almost a must. Let's say strongly preferred.
+
+Beth: Hours?
+
+Karim: We're Eastern time. I need them online at least 9 to 1 Eastern, overlap with the offices. After that they can do their own thing.
+
+Beth: Full time?
+
+Karim: Full time, 40 hours. Budget is, we were thinking 1,800 to 2,400 a month. If they're really good, a bit more.
+
+Beth: Any healthcare experience needed?
+
+Karim: Nice to have. Dental or medical clinics. They need to understand you can't put patient health stuff in a text message, HIPAA, all that. Twilio stuff too, the SMS registration thing, A2P, our numbers got flagged once.
+
+Beth: Start date?
+
+Karim: Yesterday (laughs). As soon as possible. Within two weeks ideally.
+
+Beth: Anything that's a deal breaker?
+
+Karim: If they can't show me a workflow they built. I want to see real work. And no agencies, I want one dedicated person, not a company.
+
+Beth: Perfect, I'll send you a job description to approve before we share anything.

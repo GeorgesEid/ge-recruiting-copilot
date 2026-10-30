@@ -1,0 +1,6 @@
+{
+  "name": "ge-recruiting-copilot-portal",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "22.x" }
+}

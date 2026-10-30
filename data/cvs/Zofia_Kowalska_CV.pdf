@@ -1,0 +1,51 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<<  /Length 1291 >>
+stream
+BT /F1 9 Tf 54 737 Td (Curriculum Vitae) Tj ET
+BT /F2 14 Tf 54 713 Td (Zofia Kowalska) Tj ET
+BT /F1 9 Tf 54 700 Td (Krakow, Poland - +48 601 555 013 - zofia.kowalska@mailbox-demo.com) Tj ET
+BT /F2 11 Tf 54 673 Td (About me) Tj ET
+BT /F1 10 Tf 54 659 Td (Hi! I'm Zofia, a full-stack engineer \(typescript\) with about 9 years of experience in fintech) Tj ET
+BT /F1 10 Tf 54 645 Td (and media. I speak Polish \(native\), English \(fluent\). Tools I use: React, Node.js, TypeScript,) Tj ET
+BT /F1 10 Tf 54 631 Td (PostgreSQL, AWS and JavaScript. Also good at: Event-driven systems, Jest, Playwright.) Tj ET
+BT /F2 11 Tf 54 604 Td (Experience) Tj ET
+BT /F2 10 Tf 54 584 Td (02/2019 - now: Full-Stack Engineer at PayFlux \(fintech\)) Tj ET
+BT /F1 10 Tf 54 570 Td (Designed, built and tested React, Node.js, TypeScript, PostgreSQL and AWS code for fintech) Tj ET
+BT /F1 10 Tf 54 556 Td (clients, from database to UI.) Tj ET
+BT /F2 10 Tf 54 536 Td (06/2017 - 01/2019: Junior Front-End Developer at Wawel Interactive \(media\)) Tj ET
+BT /F1 10 Tf 54 522 Td (Shipped production features with JavaScript and React for a media product used by thousands of) Tj ET
+BT /F1 10 Tf 54 508 Td (customers.) Tj ET
+BT /F1 10 Tf 54 482 Td (Education: M.Sc. Computer Science, AGH University of Krakow, 2017) Tj ET
+
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000212 00000 n 
+0000000314 00000 n 
+0000000450 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+1794
+%%EOF

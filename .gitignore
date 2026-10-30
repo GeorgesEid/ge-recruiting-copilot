@@ -1,0 +1,8 @@
+# secrets and personal settings - never commit
+.env
+.env.*
+!.env.example
+*.local.*
+.vercel/
+.claude/
+node_modules/
