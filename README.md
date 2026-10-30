@@ -7,7 +7,7 @@ All people, companies and CVs are made up. Everything created in shared tools st
 
 | | Link |
 |---|---|
-| Recruiter portal | `<added after publishing>` (actions need the passcode in the submission) |
+| Recruiter portal | https://ge-recruiting-copilot.vercel.app (actions need the passcode in the submission) |
 | Code | this repo |
 | n8n workflows (exported JSON) | [`n8n/dist/`](n8n/dist) |
 | Slack | workspace *GE Recruiting Demo*, channel `#ge-rc-recruiting`, command `/ge-find` |
@@ -33,7 +33,7 @@ Slack /ge-find <question> ─► n8n GE-RC-04 ─► GE-RC-03 ─► top 5 with 
 |---|---|
 | **GE-RC-01 New Role** | Transcript → structured job description → saved as *pending* → Slack message with Approve / Reject |
 | **GE-RC-02 CV Intake** | Any CV file → OpenAI reads it (text, Word or scanned image) → `ingest_cv` decides new / updated / duplicate / older / unreadable → unreadable is flagged in Slack |
-| **GE-RC-03 Find Candidates** | Question → AI reads every current CV → code checks the answer → top 5 with score, reason, CV file (saved as the role's shortlist when asked for a role) |
+| **GE-RC-03 Find Candidates** | Question → AI lists the requirements → code checks tools + years on every CV → AI checks the rest → code scores → top 5 with score, reason, CV file (saved as the role's shortlist when asked for a role) |
 | **GE-RC-04 Slack Ask** | `/ge-find who has 3+ years of GHL and speaks Arabic?` → answer in the channel |
 | **GE-RC-05 Slack Buttons** | Approve/Reject JD (once only, who + when recorded), builds the shortlist, Approve/Skip candidates |
 
@@ -55,7 +55,8 @@ Slack /ge-find <question> ─► n8n GE-RC-04 ─► GE-RC-03 ─► top 5 with 
 - **n8n for the automations:** required by the brief, and the recruiter's team can see every run step by step.
 - **Supabase (Postgres) as the database:** the "same person / newer CV" rules need one atomic decision per file, which a sheet cannot give.
 - **OpenAI `gpt-4.1-mini`:** cheap (the whole project costs under $1), fast, reads PDF, Word and images, and supports strict JSON answers.
-- **The whole CV pool goes to the AI for every question (no embeddings):** 55 CVs fit easily in one request, so no candidate is missed by a pre-filter. With thousands of CVs, a vector pre-filter (pgvector) would come first.
+- **Search in 4 steps, code and AI each doing what they are good at:** (1) a cheap AI call splits the question into requirements (tool + minimum years, language, certificate…) and preferences; (2) code checks tools and years against the dated jobs of ALL 55 CVs; (3) a stronger AI (`gpt-4.1`) checks languages, certificates, experience type and preferences for EVERY CV that passed; (4) code removes anyone with a failed check and computes the score. No embeddings needed at 55 CVs; with thousands, a vector pre-filter (pgvector) would come before step 2.
+- **`gpt-4.1-mini` to read CVs and write JDs, `gpt-4.1` only for the final candidate check:** the small model was inconsistent when judging many CVs at once (it listed someone without Zapier, and skipped a qualified person); the strong model reads only the CVs that passed the code check, so a search still costs a few cents.
 - **The AI reads the files directly:** one step for PDF, Word and scans, with no extra OCR service to break.
 - **Slack slash command + buttons:** the recruiter asks and approves where they already work, in one click.
 - **Plain HTML portal on Vercel, no framework:** nothing to build or break; server functions keep every key out of the browser.
@@ -69,10 +70,13 @@ Slack /ge-find <question> ─► n8n GE-RC-04 ─► GE-RC-03 ─► top 5 with 
 
 ### Scoring
 - **Hard requirements filter, preferences rank:** "3+ years, Arabic required" removes people; "Arabic preferred" only raises the score.
-- **The AI checks each requirement separately (met / not met + evidence) and code keeps only "all met":** the first version let the AI give one overall score and it padded lists to 5 with people it had itself called unqualified (test score 2/10). After the change: 10/10.
-- **Code does the date math, the AI does the language:** when a CV is read, the AI lists every job with its dates and tools; code adds up years per tool (overlaps counted once) and hands the AI the numbers. AI arithmetic once missed Sara's 1.5 + 1.8 years.
-- **0-100 score = strength among people who meet every must-have; under 60 = not shown:** easy to read without training.
-- **Years are added across jobs and counted to today:** Rania's two GHL jobs add up to 4.7 years.
+- **Every requirement is checked separately (met / not met + evidence) and code keeps only "all met":** the first version let the AI give one overall score and it padded lists to 5 with people it had itself called unqualified (test score 2/10).
+- **Code does the date math:** when a CV is read, the AI lists every job with its dates and tools; code adds up years per tool (overlapping jobs counted once). AI arithmetic once missed Sara's 1.5 + 1.8 years.
+- **A number of years applies only to the tool it is written next to:** "3+ years of GHL, comfortable with Zapier" asks years for GHL only. The AI once invented "3+ years of Zapier" and cut two good candidates.
+- **Score = 70 for meeting every must-have + up to 25 for the client's preferred extras proven in the CV + up to 5 for depth:** computed by code, so it is explainable; for Crescent Smile Dental the Arabic-speaking dental specialists rank first, as the client asked.
+- **Things no CV can prove (hours, availability, "no agencies") are not used to filter:** the recruiter checks them in the interview instead of the AI guessing.
+- **Years are counted to today and added across jobs:** Rania's two GHL jobs add up to 4.7 years.
+- **Result: 10/10 on the test page, twice in a row; the same question gives the same shortlist every time.**
 - **Same tool, different spelling counts; a different product does not:** GHL = HighLevel, but Azure is not AWS.
 
 ### Pipeline (GHL "GE-RC Candidates")

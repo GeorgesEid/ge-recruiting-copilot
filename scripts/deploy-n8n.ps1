@@ -11,7 +11,7 @@ $root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $envs = @{}
 Get-Content (Join-Path $root '.env') | ? { $_ -match '^\s*([A-Z0-9_]+)=(.*)$' } | % { $envs[$Matches[1]] = $Matches[2].Trim() }
 $SB = $envs.SUPABASE_URL; $N8N = $envs.N8N_BASE_URL.TrimEnd('/')
-$subs = @{ OPENAI_MODEL = $envs.OPENAI_MODEL; SLACK_CHANNEL_ID = $envs.SLACK_CHANNEL_ID; SUPABASE_URL = $SB; N8N_BASE_URL = $N8N }
+$subs = @{ OPENAI_MODEL = $envs.OPENAI_MODEL; OPENAI_SEARCH_MODEL = $envs.OPENAI_SEARCH_MODEL; SLACK_CHANNEL_ID = $envs.SLACK_CHANNEL_ID; SUPABASE_URL = $SB; N8N_BASE_URL = $N8N }
 
 function Code([string[]]$files) {
   $s = ($files | % { Get-Content (Join-Path $root "n8n\code\$_") -Raw -Encoding UTF8 }) -join "`n"
@@ -113,13 +113,15 @@ Save-Wf 'GE-RC-02-cv-intake.json'
 Start-Wf 'GE-RC-03 Find Candidates'
 Webhook 'Search webhook' 'ge-rc-search' $true
 Http 'Load candidate pool' 'GET' "$SB/rest/v1/candidates?select=id,name,email,cv_file,cv_text,jobs&order=id" 'supabase' $null @() ($retry + @{ alwaysOutputData = $true })
+CodeNode 'Read the question' 'search-parse-request.js'
+Http 'Understand question (OpenAI)' 'POST' 'https://api.openai.com/v1/chat/completions' 'openai' '={{ JSON.stringify($json.request) }}' @() $retry 60000
 CodeNode 'Build search request' 'search-build-request.js'
 Http 'Rank candidates (OpenAI)' 'POST' 'https://api.openai.com/v1/chat/completions' 'openai' '={{ JSON.stringify($json.request) }}' @() $retry 120000
 CodeNode 'Check results' 'search-check.js'
 IfNode 'For a role?' '={{ !!$json.role_id && $json.rows.length > 0 }}'
 Http 'Save shortlist' 'POST' "$SB/rest/v1/shortlists?on_conflict=role_id,candidate_id" 'supabase' '={{ JSON.stringify($json.rows) }}' @(, @('Prefer', 'resolution=ignore-duplicates,return=minimal')) $retry
 Respond 'Return results' "={{ JSON.stringify(`$('Check results').first().json) }}"
-Chain @('Search webhook', 'Load candidate pool', 'Build search request', 'Rank candidates (OpenAI)', 'Check results', 'For a role?', 'Save shortlist', 'Return results')
+Chain @('Search webhook', 'Load candidate pool', 'Read the question', 'Understand question (OpenAI)', 'Build search request', 'Rank candidates (OpenAI)', 'Check results', 'For a role?', 'Save shortlist', 'Return results')
 Link 'For a role?' 'Return results' 1
 Save-Wf 'GE-RC-03-find-candidates.json'
 
