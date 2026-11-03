@@ -5,21 +5,15 @@ const role = $('JD decision message').first().json.role;
 const r = $input.first().json;
 const s = act.settings;
 
-// Testing: every candidate gets a different Gmail "dot" alias of the tester's inbox, so no fake person is ever emailed.
-// (Gmail ignores dots; GHL sees a different address per candidate. "+" aliases break GHL form links.)
-function testAlias(inbox, n) {
-  const [local, domain] = inbox.split('@');
-  const ch = local.replace(/\./g, '').split('');
-  let out = ch[0];
-  for (let i = 1; i < ch.length; i++) out += ((n >> (i - 1)) & 1 ? '.' : '') + ch[i];
-  return `${out}@${domain}`;
-}
+// Test mode: outreach goes to the tester's own inbox, never to the made-up person. It must be the EXACT address
+// the tester replies from: GHL matches a reply to a contact by the sender's address, so aliases (dots, "+")
+// make the reply land on another contact and "stop on reply" never fires. Test one candidate at a time.
 function ghlLink(m) {
   if (!s.ghl_form_url) return null;
   const parts = m.name.split(' ');
   const q = {
     first_name: parts[0], last_name: parts.slice(1).join(' '),
-    email: s.test_inbox ? testAlias(s.test_inbox, m.candidate_id) : m.email,
+    email: s.test_inbox || m.email,
     gerc_role: `${role.title} - ${role.client}`, gerc_score: String(m.score), gerc_cv_file: m.cv_file,
     gerc_ref: `${role.id}:${m.candidate_id}`,
   };

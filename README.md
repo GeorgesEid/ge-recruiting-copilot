@@ -89,7 +89,8 @@ Slack /ge-find <question> ─► n8n GE-RC-04 ─► GE-RC-03 ─► top 5 with 
 - **Every Slack request is verified with the signing secret (Slack's official method):** nobody can fake an approval. The secret is read from the database at run time, so it is not in the workflow files.
 - **Webhooks for the portal require a secret header; portal actions require a passcode:** viewing is open (made-up data), changing is not.
 - **No key in any workflow file, repo, browser or screenshot:** keys live in `.env` (git-ignored), n8n credentials and Vercel environment variables.
-- **Testing never emails a fake person:** each candidate's outreach goes to a different Gmail "dot" alias of the tester's own inbox.
+- **Testing never emails a fake person:** in test mode every outreach goes to the tester's own inbox (`test_inbox` setting); one candidate at a time.
+- **The test inbox is the exact address the tester replies from, no Gmail aliases:** GHL matches a reply to a contact by the sender's address; with a "dot" alias the reply landed on another contact and email 3 was still sent. With the exact inbox the reply stopped the sequence and moved the deal to Replied.
 - **CV text and transcripts are treated as data:** the prompts tell the AI to ignore instructions hidden inside them.
 
 ## Test page
