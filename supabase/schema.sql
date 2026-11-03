@@ -164,10 +164,8 @@ language sql security definer set search_path = public as $$
    where s.role_id = p_role and s.candidate_id = p_candidate;
 $$;
 
--- Developer helper so Claude can apply later fixes without another copy-paste.
--- Only the service_role key can call it. Remove before handing over to a real client: drop function ge_exec_sql(text);
-create or replace function ge_exec_sql(q text) returns void
-language plpgsql security definer set search_path = public as $$ begin execute q; end $$;
+-- A temporary "run any SQL" helper (ge_exec_sql) was used during the build and dropped before handover.
+drop function if exists ge_exec_sql(text);
 
-revoke all on function ingest_cv(jsonb), decide_role(bigint, text, text), decide_candidate(bigint, bigint, text, text), ge_exec_sql(text) from public, anon, authenticated;
-grant execute on function ingest_cv(jsonb), decide_role(bigint, text, text), decide_candidate(bigint, bigint, text, text), ge_exec_sql(text) to service_role;
+revoke all on function ingest_cv(jsonb), decide_role(bigint, text, text), decide_candidate(bigint, bigint, text, text) from public, anon, authenticated;
+grant execute on function ingest_cv(jsonb), decide_role(bigint, text, text), decide_candidate(bigint, bigint, text, text) to service_role;

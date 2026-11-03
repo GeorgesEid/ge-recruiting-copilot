@@ -91,6 +91,7 @@ Slack /ge-find <question> ─► n8n GE-RC-04 ─► GE-RC-03 ─► top 5 with 
 - **No key in any workflow file, repo, browser or screenshot:** keys live in `.env` (git-ignored), n8n credentials and Vercel environment variables.
 - **Testing never emails a fake person:** in test mode every outreach goes to the tester's own inbox (`test_inbox` setting); one candidate at a time.
 - **The test inbox is the exact address the tester replies from, no Gmail aliases:** GHL matches a reply to a contact by the sender's address; with a "dot" alias the reply landed on another contact and email 3 was still sent. With the exact inbox the reply stopped the sequence and moved the deal to Replied.
+- **No "run any SQL" back door:** a temporary helper used during the build was dropped; the database only exposes the 3 decision functions, to the server key only.
 - **CV text and transcripts are treated as data:** the prompts tell the AI to ignore instructions hidden inside them.
 
 ## Test page
@@ -109,4 +110,4 @@ people, each once. The portal shows the latest score and can re-run it.
 | `n8n/code/*.js` · `n8n/dist/*.json` | The code of every n8n step · the importable workflows |
 | `scripts/deploy-n8n.ps1` · `load-cvs.ps1` · `run-tests.ps1` · `publish.ps1` | Install workflows · load CVs · run the 10 tests · publish |
 | `web/` | Recruiter portal (Vercel) |
-| `docs/STEP-*.md` | Setup, step by step |
+| `docs/STEP-*.md` · `docs/LOOM-SCRIPT.md` | Setup, step by step · the demo script |
