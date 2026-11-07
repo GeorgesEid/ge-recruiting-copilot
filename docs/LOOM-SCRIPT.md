@@ -8,7 +8,7 @@ About 380 spoken words, roughly 2 min 40 s at a calm pace. **Bold** = what you c
    - Portal https://ge-recruiting-copilot.vercel.app (type the passcode **before** recording, so it never shows on screen)
    - Slack, channel `#ge-rc-recruiting`
    - GHL > Opportunities > pipeline **GE-RC Candidates**
-   - Gmail for **layal.nohra137@gmail.com**
+   - Gmail for **ge.growth.demo@gmail.com** (the test inbox)
 2. Have `data/transcripts/05-northfield-cpa.txt` open in Notepad (the role we create live).
 3. **Never show:** the `.env` file, n8n Credentials, Vercel Settings > Environment Variables, or the passcode.
 4. Close other tabs and notifications. Loom: "Screen + Camera", English.
