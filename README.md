@@ -11,7 +11,7 @@ All people, companies and CVs are made up. Everything created in shared tools st
 | Code | this repo |
 | n8n workflows (exported JSON) | [`n8n/dist/`](n8n/dist) |
 | Slack | workspace *GE Recruiting Demo*, channel `#ge-rc-recruiting`, command `/ge-find` |
-| Loom | `<add link>` |
+| Loom | https://www.loom.com/share/03fe10cb467f48d58e55e9c57ea3a26c |
 
 ## How it works
 
@@ -103,7 +103,7 @@ people, each once. The portal shows the latest score and can re-run it.
 
 | Path | What |
 |---|---|
-| `data/transcripts/` | 5 messy client call transcripts |
+| `data/transcripts/` | 7 messy client call transcripts (06 and 07 were written for the Loom) |
 | `data/cvs/` · `data/hard-cases/` | 60 CVs (PDF + Word, 1 scan, 3 duplicates, 2 updates) · 2 unreadable files |
 | `data/cv-source.txt` · `scripts/generate-cvs.ps1` | The made-up people · builds the CV files |
 | `supabase/schema.sql` | Tables and the decision rules (new / updated / duplicate, approve once) |
